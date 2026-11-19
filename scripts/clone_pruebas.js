@@ -1,0 +1,10 @@
+db.requests_pruebas.drop();
+print("Clonando requests hacia requests_pruebas...");
+db.requests.aggregate([{ $match: {} }, { $out: "requests_pruebas" }]);
+db.requests_pruebas.createIndex({ unique_key: 1 }, { unique: true });
+db.requests_pruebas.createIndex({ created_date: -1 });
+db.requests_pruebas.createIndex({ agency: 1, status: 1 });
+db.requests_pruebas.createIndex({ complaint_type: 1 });
+db.requests_pruebas.createIndex({ borough: 1 });
+print("requests count:", db.requests.countDocuments({}));
+print("requests_pruebas count:", db.requests_pruebas.countDocuments({}));

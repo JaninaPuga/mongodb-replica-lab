@@ -1,0 +1,12 @@
+# Entornos y SO
+.DS_Store
+Thumbs.db
+*.log
+
+# Editores
+.vscode/
+.idea/
+
+# Carpetas temporales
+tmp/
+scratch/
